@@ -1,0 +1,40 @@
+@startuml
+
+class Inscripcion{
+    -listaMaterias: set<Materia>
+    -alumno: Alumno
+    +boolean aprobada()
+}
+
+class Alumno{
+    -nombre: String
+    -materiasAprobadas: set<Materia>
+    +void aprobarMateria(Materia materia)
+}
+
+class Materia{
+    -nombre:String
+    -materiasCorrelativas:set<Materia>
+    +boolean correlativasAprobadas(Alumno alumno)
+}
+
+Inscripcion --> "*" Materia
+Inscripcion --> Alumno
+Alumno --> "*" Materia
+Materia -->"*" Materia
+
+
+
+
+
+
+
+@enduml
+
+
+
+
+
+
+
+
